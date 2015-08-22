@@ -10,7 +10,7 @@ int match_items( content_switch *content)
 {                                                                                
 	content *item = NULL;                                    
 	int match_result = SWITCH_NOT_MATCH, tmp_ret;                    
-	int reset = 1;                                                           
+	int flag = 1; // flag for first match item
 
 	if( unlikely( !content ) )                                 
 	{                                                                        
@@ -26,9 +26,9 @@ int match_items( content_switch *content)
 	{                                                                        
 		tmp_ret = get_match_result( item );                  
 
-		if (item->ops == OPS_NONE || reset == 1) {                       
+		if (item->ops == OPS_NONE || flag == 1) {                       
 			match_result = tmp_ret;                                  
-			reset = 0;   
+			flag = 0;
 			goto next;                                                  
 		}                                                                   
 		if (item->ops == OPS_OR) {                                          
@@ -38,7 +38,7 @@ int match_items( content_switch *content)
 			/* Notes: false || operation result will be depends         
 			 *                          * on the right value. */                                   
 			if (match_result == SWITCH_NOT_MATCH) {             
-				reset = 1;                                          
+				match_result == tmp_ret;
 				goto next;                                          
 			}                                                           
 		}                                                                   
