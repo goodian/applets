@@ -36,7 +36,7 @@ int match_items( content_switch *content)
 			if (match_result == SWITCH_MATCH)                   
 				return SWITCH_MATCH;                        
 			/* Notes: false || operation result will be depends         
-			 *                          * on the right value. */                                   
+			 * on the right value. */                                   
 			if (match_result == SWITCH_NOT_MATCH) {             
 				match_result == tmp_ret;
 				goto next;                                          
@@ -54,7 +54,7 @@ int match_items( content_switch *content)
 				}                                                   
 			}                                                           
 			/* Notes: false && operation will always return false,   
-			 *                          * do not change match_result. */                           
+			 * do not change match_result. */                           
 			if (match_result == SWITCH_NOT_MATCH) {             
 				goto next;                                          
 			}                                                           
